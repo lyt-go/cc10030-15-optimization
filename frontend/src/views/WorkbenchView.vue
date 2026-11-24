@@ -37,6 +37,8 @@
       <button class="btn ghost" data-testid="reset" type="button" @click="resetFilters">重置条件</button>
     </form>
 
+    <RouteHandoverPanel v-if="meta.key === 'route_restore'" />
+
     <table class="data-table">
       <thead>
         <tr>
@@ -104,6 +106,7 @@ import {
   runAction as applyAction,
 } from '@/api/backend-service'
 import type { EntryRow } from '@/data/types'
+import RouteHandoverPanel from '@/views/RouteHandoverPanel.vue'
 
 const props = defineProps<{ moduleKey: string }>()
 const meta = moduleMeta(props.moduleKey)
